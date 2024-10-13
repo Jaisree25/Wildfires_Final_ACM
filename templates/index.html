@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wildfire Prediction</title>
+    <style>
+        body {
+            background-image: url('{{ url_for('static', filename='images/misty_trees.jpg') }}');
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 10px;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin: 40px 0 20px 0;
+            font-size: 4rem;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 100%;
+            max-width: 600px;
+            margin-bottom: 20px;
+        }
+        .bottom-container {
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+        input[type="file"], input[type="number"] {
+            margin: 20px 0;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Wildfire Prediction</h1>
+
+    <div class="container">
+        <h2>Upload a Satellite Image (350x350 Pixels)</h2>
+        <form action="/predict" method="POST" enctype="multipart/form-data">
+            <input type="file" name="file" accept="image/*" required>
+            <br>
+            <button type="submit">Predict</button>
+        </form>
+    </div>
+
+    <div class="container bottom-container">
+        <h2>Enter Weather Data</h2>
+        <form action="/predict_weather" method="POST">
+            <label for="temperature">Temperature (°C):</label>
+            <br>
+            <input type="number" id="temperature" name="temperature" required>
+            <br>
+            <label for="humidity">Humidity (%):</label>
+            <br>
+            <input type="number" id="humidity" name="humidity" required>
+            <br>
+            <label for="wind-speed">Wind Speed (m/s):</label>
+            <br>
+            <input type="number" id="wind-speed" name="wind_speed" required>
+            <br>
+            <button type="submit">Predict</button>
+        </form>
+    </div>
+</body>
+</html>
+
