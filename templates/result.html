@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 10px;
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        .container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 100%;
+            max-width: 600px;
+        }
+        .result {
+            font-size: 1.5rem;
+            color: black;
+        }
+    </style>
+</head>
+<body style="background-color: {{ '#ad1917' if predicted_class == 'HIGH' else '#179928' }}">
+    <div class="container">
+        <h1>Prediction Result</h1>
+        <p class="result">Wildfire Risk: {{ predicted_class }}</p>
+        <a href="/">Go Back</a>
+    </div>
+</body>
+</html>
+
